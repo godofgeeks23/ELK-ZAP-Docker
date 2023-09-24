@@ -9,10 +9,6 @@ echo Container ID: $CONTAINER_ID
 
 docker exec $CONTAINER_ID /bin/sh -c "pip install --upgrade zapcli"
 
-# docker exec $CONTAINER_ID /bin/sh -c '''export PATH=/home/zap/.local/bin:$PATH'''
-# docker exec $CONTAINER_ID /bin/sh -c '''echo $PATH'''
-
-
 docker exec $CONTAINER_ID /home/zap/.local/bin/zap-cli -p 2375 status -t 120 && docker exec $CONTAINER_ID /home/zap/.local/bin/zap-cli -p 2375 open-url $TARGET_URL
 
 docker exec $CONTAINER_ID /home/zap/.local/bin/zap-cli -p 2375 spider $TARGET_URL
@@ -38,7 +34,6 @@ until curl -u elastic:changeme localhost:9200; do echo "Waiting for Elasticsearc
 
 
 echo "parse output.json - add indices"
-# cat output.json | jq -c '.[] | {"index": {"_index": "bookmarks", "_type": "bookmark", "_id": .id}}, .' | curl -H 'Content-Type: application/json' -u elastic:changeme  -XPOST localhost:9200/_bulk --data-binary @-
 cat output.json | jq -c '.[] | {"index": {"_index": "bookmarks", "_id": .id}}, .' | curl -H 'Content-Type: application/json' -u elastic:changeme -XPOST localhost:9200/_bulk --data-binary @-
 
 docker stop $CONTAINER_ID
