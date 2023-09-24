@@ -1,11 +1,3 @@
-OCI runtime exec failed: exec failed: unable to start container process: exec: "zap-cli": executable file not found in $PATH: unknown
-OCI runtime exec failed: exec failed: unable to start container process: exec: "zap-cli": executable file not found in $PATH: unknown
-OCI runtime exec failed: exec failed: unable to start container process: exec: "zap-cli": executable file not found in $PATH: unknown
-OCI runtime exec failed: exec failed: unable to start container process: exec: "zap-cli": executable file not found in $PATH: unknown
-OCI runtime exec failed: exec failed: unable to start container process: exec: "zap-cli": executable file not found in $PATH: unknown
-OCI runtime exec failed: exec failed: unable to start container process: exec: "zap-cli": executable file not found in $PATH: unknown
-OCI runtime exec failed: exec failed: unable to start container process: exec: "zap-cli": executable file not found in $PATH: unknown
-OCI runtime exec failed: exec failed: unable to start container process: exec: "zap-cli": executable file not found in $PATH: unknown
 [
     {
         "sourceid": "3",
@@ -95,6 +87,34 @@ OCI runtime exec failed: exec failed: unable to start container process: exec: "
         "other": "",
         "method": "GET",
         "evidence": "",
+        "pluginId": "10020",
+        "cweid": "1021",
+        "confidence": "Medium",
+        "wascid": "15",
+        "description": "The response does not include either Content-Security-Policy with 'frame-ancestors' directive or X-Frame-Options to protect against 'ClickJacking' attacks.",
+        "messageId": "15",
+        "inputVector": "",
+        "url": "https://reconaid.in/sitemap.xml",
+        "tags": {
+            "OWASP_2021_A05": "https://owasp.org/Top10/A05_2021-Security_Misconfiguration/",
+            "WSTG-v42-CLNT-09": "https://owasp.org/www-project-web-security-testing-guide/v42/4-Web_Application_Security_Testing/11-Client-side_Testing/09-Testing_for_Clickjacking",
+            "OWASP_2017_A06": "https://owasp.org/www-project-top-ten/2017/A6_2017-Security_Misconfiguration.html"
+        },
+        "reference": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options",
+        "solution": "Modern Web browsers support the Content-Security-Policy and X-Frame-Options HTTP headers. Ensure one of them is set on all web pages returned by your site/app.\nIf you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY. Alternatively consider implementing Content Security Policy's \"frame-ancestors\" directive.",
+        "alert": "Missing Anti-clickjacking Header",
+        "param": "x-frame-options",
+        "attack": "",
+        "name": "Missing Anti-clickjacking Header",
+        "risk": "Medium",
+        "id": "7",
+        "alertRef": "10020-1"
+    },
+    {
+        "sourceid": "3",
+        "other": "",
+        "method": "GET",
+        "evidence": "",
         "pluginId": "10038",
         "cweid": "693",
         "confidence": "High",
@@ -114,36 +134,8 @@ OCI runtime exec failed: exec failed: unable to start container process: exec: "
         "attack": "",
         "name": "Content Security Policy (CSP) Header Not Set",
         "risk": "Medium",
-        "id": "9",
+        "id": "14",
         "alertRef": "10038-1"
-    },
-    {
-        "sourceid": "3",
-        "other": "",
-        "method": "GET",
-        "evidence": "",
-        "pluginId": "10020",
-        "cweid": "1021",
-        "confidence": "Medium",
-        "wascid": "15",
-        "description": "The response does not include either Content-Security-Policy with 'frame-ancestors' directive or X-Frame-Options to protect against 'ClickJacking' attacks.",
-        "messageId": "14",
-        "inputVector": "",
-        "url": "https://reconaid.in/sitemap.xml",
-        "tags": {
-            "OWASP_2021_A05": "https://owasp.org/Top10/A05_2021-Security_Misconfiguration/",
-            "WSTG-v42-CLNT-09": "https://owasp.org/www-project-web-security-testing-guide/v42/4-Web_Application_Security_Testing/11-Client-side_Testing/09-Testing_for_Clickjacking",
-            "OWASP_2017_A06": "https://owasp.org/www-project-top-ten/2017/A6_2017-Security_Misconfiguration.html"
-        },
-        "reference": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options",
-        "solution": "Modern Web browsers support the Content-Security-Policy and X-Frame-Options HTTP headers. Ensure one of them is set on all web pages returned by your site/app.\nIf you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY. Alternatively consider implementing Content Security Policy's \"frame-ancestors\" directive.",
-        "alert": "Missing Anti-clickjacking Header",
-        "param": "x-frame-options",
-        "attack": "",
-        "name": "Missing Anti-clickjacking Header",
-        "risk": "Medium",
-        "id": "12",
-        "alertRef": "10020-1"
     },
     {
         "sourceid": "3",
@@ -155,7 +147,7 @@ OCI runtime exec failed: exec failed: unable to start container process: exec: "
         "confidence": "High",
         "wascid": "15",
         "description": "Content Security Policy (CSP) is an added layer of security that helps to detect and mitigate certain types of attacks, including Cross Site Scripting (XSS) and data injection attacks. These attacks are used for everything from data theft to site defacement or distribution of malware. CSP provides a set of standard HTTP headers that allow website owners to declare approved sources of content that browsers should be allowed to load on that page \u2014 covered types are JavaScript, CSS, HTML frames, fonts, images and embeddable objects such as Java applets, ActiveX, audio and video files.",
-        "messageId": "14",
+        "messageId": "15",
         "inputVector": "",
         "url": "https://reconaid.in/sitemap.xml",
         "tags": {
@@ -169,7 +161,7 @@ OCI runtime exec failed: exec failed: unable to start container process: exec: "
         "attack": "",
         "name": "Content Security Policy (CSP) Header Not Set",
         "risk": "Medium",
-        "id": "25",
+        "id": "22",
         "alertRef": "10038-1"
     },
     {
@@ -236,34 +228,7 @@ OCI runtime exec failed: exec failed: unable to start container process: exec: "
         "confidence": "High",
         "wascid": "15",
         "description": "HTTP Strict Transport Security (HSTS) is a web security policy mechanism whereby a web server declares that complying user agents (such as a web browser) are to interact with it using only secure HTTPS connections (i.e. HTTP layered over TLS/SSL). HSTS is an IETF standards track protocol and is specified in RFC 6797.",
-        "messageId": "7",
-        "inputVector": "",
-        "url": "https://reconaid.in",
-        "tags": {
-            "OWASP_2021_A05": "https://owasp.org/Top10/A05_2021-Security_Misconfiguration/",
-            "OWASP_2017_A06": "https://owasp.org/www-project-top-ten/2017/A6_2017-Security_Misconfiguration.html"
-        },
-        "reference": "https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html\nhttps://owasp.org/www-community/Security_Headers\nhttp://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security\nhttp://caniuse.com/stricttransportsecurity\nhttp://tools.ietf.org/html/rfc6797",
-        "solution": "Ensure that your web server, application server, load balancer, etc. is configured to enforce Strict-Transport-Security.",
-        "alert": "Strict-Transport-Security Header Not Set",
-        "param": "",
-        "attack": "",
-        "name": "Strict-Transport-Security Header Not Set",
-        "risk": "Low",
-        "id": "13",
-        "alertRef": "10035"
-    },
-    {
-        "sourceid": "3",
-        "other": "",
-        "method": "GET",
-        "evidence": "",
-        "pluginId": "10035",
-        "cweid": "319",
-        "confidence": "High",
-        "wascid": "15",
-        "description": "HTTP Strict Transport Security (HSTS) is a web security policy mechanism whereby a web server declares that complying user agents (such as a web browser) are to interact with it using only secure HTTPS connections (i.e. HTTP layered over TLS/SSL). HSTS is an IETF standards track protocol and is specified in RFC 6797.",
-        "messageId": "13",
+        "messageId": "18",
         "inputVector": "",
         "url": "https://reconaid.in/logo192.png",
         "tags": {
@@ -277,35 +242,8 @@ OCI runtime exec failed: exec failed: unable to start container process: exec: "
         "attack": "",
         "name": "Strict-Transport-Security Header Not Set",
         "risk": "Low",
-        "id": "14",
+        "id": "11",
         "alertRef": "10035"
-    },
-    {
-        "sourceid": "3",
-        "other": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses.",
-        "method": "GET",
-        "evidence": "",
-        "pluginId": "10021",
-        "cweid": "693",
-        "confidence": "Medium",
-        "wascid": "15",
-        "description": "The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.",
-        "messageId": "7",
-        "inputVector": "",
-        "url": "https://reconaid.in",
-        "tags": {
-            "OWASP_2021_A05": "https://owasp.org/Top10/A05_2021-Security_Misconfiguration/",
-            "OWASP_2017_A06": "https://owasp.org/www-project-top-ten/2017/A6_2017-Security_Misconfiguration.html"
-        },
-        "reference": "http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx\nhttps://owasp.org/www-community/Security_Headers",
-        "solution": "Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to 'nosniff' for all web pages.\nIf possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing.",
-        "alert": "X-Content-Type-Options Header Missing",
-        "param": "x-content-type-options",
-        "attack": "",
-        "name": "X-Content-Type-Options Header Missing",
-        "risk": "Low",
-        "id": "18",
-        "alertRef": "10021"
     },
     {
         "sourceid": "3",
@@ -317,7 +255,7 @@ OCI runtime exec failed: exec failed: unable to start container process: exec: "
         "confidence": "High",
         "wascid": "15",
         "description": "HTTP Strict Transport Security (HSTS) is a web security policy mechanism whereby a web server declares that complying user agents (such as a web browser) are to interact with it using only secure HTTPS connections (i.e. HTTP layered over TLS/SSL). HSTS is an IETF standards track protocol and is specified in RFC 6797.",
-        "messageId": "16",
+        "messageId": "14",
         "inputVector": "",
         "url": "https://reconaid.in/robots.txt",
         "tags": {
@@ -331,8 +269,62 @@ OCI runtime exec failed: exec failed: unable to start container process: exec: "
         "attack": "",
         "name": "Strict-Transport-Security Header Not Set",
         "risk": "Low",
-        "id": "19",
+        "id": "15",
         "alertRef": "10035"
+    },
+    {
+        "sourceid": "3",
+        "other": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses.",
+        "method": "GET",
+        "evidence": "",
+        "pluginId": "10021",
+        "cweid": "693",
+        "confidence": "Medium",
+        "wascid": "15",
+        "description": "The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.",
+        "messageId": "18",
+        "inputVector": "",
+        "url": "https://reconaid.in/logo192.png",
+        "tags": {
+            "OWASP_2021_A05": "https://owasp.org/Top10/A05_2021-Security_Misconfiguration/",
+            "OWASP_2017_A06": "https://owasp.org/www-project-top-ten/2017/A6_2017-Security_Misconfiguration.html"
+        },
+        "reference": "http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx\nhttps://owasp.org/www-community/Security_Headers",
+        "solution": "Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to 'nosniff' for all web pages.\nIf possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing.",
+        "alert": "X-Content-Type-Options Header Missing",
+        "param": "x-content-type-options",
+        "attack": "",
+        "name": "X-Content-Type-Options Header Missing",
+        "risk": "Low",
+        "id": "16",
+        "alertRef": "10021"
+    },
+    {
+        "sourceid": "3",
+        "other": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses.",
+        "method": "GET",
+        "evidence": "",
+        "pluginId": "10021",
+        "cweid": "693",
+        "confidence": "Medium",
+        "wascid": "15",
+        "description": "The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.",
+        "messageId": "14",
+        "inputVector": "",
+        "url": "https://reconaid.in/robots.txt",
+        "tags": {
+            "OWASP_2021_A05": "https://owasp.org/Top10/A05_2021-Security_Misconfiguration/",
+            "OWASP_2017_A06": "https://owasp.org/www-project-top-ten/2017/A6_2017-Security_Misconfiguration.html"
+        },
+        "reference": "http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx\nhttps://owasp.org/www-community/Security_Headers",
+        "solution": "Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to 'nosniff' for all web pages.\nIf possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing.",
+        "alert": "X-Content-Type-Options Header Missing",
+        "param": "x-content-type-options",
+        "attack": "",
+        "name": "X-Content-Type-Options Header Missing",
+        "risk": "Low",
+        "id": "17",
+        "alertRef": "10021"
     },
     {
         "sourceid": "3",
@@ -358,35 +350,35 @@ OCI runtime exec failed: exec failed: unable to start container process: exec: "
         "attack": "",
         "name": "Strict-Transport-Security Header Not Set",
         "risk": "Low",
-        "id": "22",
+        "id": "20",
         "alertRef": "10035"
     },
     {
         "sourceid": "3",
-        "other": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses.",
+        "other": "",
         "method": "GET",
         "evidence": "",
-        "pluginId": "10021",
-        "cweid": "693",
-        "confidence": "Medium",
+        "pluginId": "10035",
+        "cweid": "319",
+        "confidence": "High",
         "wascid": "15",
-        "description": "The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.",
-        "messageId": "13",
+        "description": "HTTP Strict Transport Security (HSTS) is a web security policy mechanism whereby a web server declares that complying user agents (such as a web browser) are to interact with it using only secure HTTPS connections (i.e. HTTP layered over TLS/SSL). HSTS is an IETF standards track protocol and is specified in RFC 6797.",
+        "messageId": "7",
         "inputVector": "",
-        "url": "https://reconaid.in/logo192.png",
+        "url": "https://reconaid.in",
         "tags": {
             "OWASP_2021_A05": "https://owasp.org/Top10/A05_2021-Security_Misconfiguration/",
             "OWASP_2017_A06": "https://owasp.org/www-project-top-ten/2017/A6_2017-Security_Misconfiguration.html"
         },
-        "reference": "http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx\nhttps://owasp.org/www-community/Security_Headers",
-        "solution": "Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to 'nosniff' for all web pages.\nIf possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing.",
-        "alert": "X-Content-Type-Options Header Missing",
-        "param": "x-content-type-options",
+        "reference": "https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html\nhttps://owasp.org/www-community/Security_Headers\nhttp://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security\nhttp://caniuse.com/stricttransportsecurity\nhttp://tools.ietf.org/html/rfc6797",
+        "solution": "Ensure that your web server, application server, load balancer, etc. is configured to enforce Strict-Transport-Security.",
+        "alert": "Strict-Transport-Security Header Not Set",
+        "param": "",
         "attack": "",
-        "name": "X-Content-Type-Options Header Missing",
+        "name": "Strict-Transport-Security Header Not Set",
         "risk": "Low",
         "id": "24",
-        "alertRef": "10021"
+        "alertRef": "10035"
     },
     {
         "sourceid": "3",
@@ -401,6 +393,33 @@ OCI runtime exec failed: exec failed: unable to start container process: exec: "
         "messageId": "17",
         "inputVector": "",
         "url": "https://reconaid.in/manifest.json",
+        "tags": {
+            "OWASP_2021_A05": "https://owasp.org/Top10/A05_2021-Security_Misconfiguration/",
+            "OWASP_2017_A06": "https://owasp.org/www-project-top-ten/2017/A6_2017-Security_Misconfiguration.html"
+        },
+        "reference": "http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx\nhttps://owasp.org/www-community/Security_Headers",
+        "solution": "Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to 'nosniff' for all web pages.\nIf possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing.",
+        "alert": "X-Content-Type-Options Header Missing",
+        "param": "x-content-type-options",
+        "attack": "",
+        "name": "X-Content-Type-Options Header Missing",
+        "risk": "Low",
+        "id": "26",
+        "alertRef": "10021"
+    },
+    {
+        "sourceid": "3",
+        "other": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses.",
+        "method": "GET",
+        "evidence": "",
+        "pluginId": "10021",
+        "cweid": "693",
+        "confidence": "Medium",
+        "wascid": "15",
+        "description": "The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.",
+        "messageId": "7",
+        "inputVector": "",
+        "url": "https://reconaid.in",
         "tags": {
             "OWASP_2021_A05": "https://owasp.org/Top10/A05_2021-Security_Misconfiguration/",
             "OWASP_2017_A06": "https://owasp.org/www-project-top-ten/2017/A6_2017-Security_Misconfiguration.html"
@@ -417,33 +436,6 @@ OCI runtime exec failed: exec failed: unable to start container process: exec: "
     },
     {
         "sourceid": "3",
-        "other": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses.",
-        "method": "GET",
-        "evidence": "",
-        "pluginId": "10021",
-        "cweid": "693",
-        "confidence": "Medium",
-        "wascid": "15",
-        "description": "The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.",
-        "messageId": "16",
-        "inputVector": "",
-        "url": "https://reconaid.in/robots.txt",
-        "tags": {
-            "OWASP_2021_A05": "https://owasp.org/Top10/A05_2021-Security_Misconfiguration/",
-            "OWASP_2017_A06": "https://owasp.org/www-project-top-ten/2017/A6_2017-Security_Misconfiguration.html"
-        },
-        "reference": "http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx\nhttps://owasp.org/www-community/Security_Headers",
-        "solution": "Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to 'nosniff' for all web pages.\nIf possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing.",
-        "alert": "X-Content-Type-Options Header Missing",
-        "param": "x-content-type-options",
-        "attack": "",
-        "name": "X-Content-Type-Options Header Missing",
-        "risk": "Low",
-        "id": "28",
-        "alertRef": "10021"
-    },
-    {
-        "sourceid": "3",
         "other": "",
         "method": "GET",
         "evidence": "",
@@ -452,7 +444,7 @@ OCI runtime exec failed: exec failed: unable to start container process: exec: "
         "confidence": "High",
         "wascid": "15",
         "description": "HTTP Strict Transport Security (HSTS) is a web security policy mechanism whereby a web server declares that complying user agents (such as a web browser) are to interact with it using only secure HTTPS connections (i.e. HTTP layered over TLS/SSL). HSTS is an IETF standards track protocol and is specified in RFC 6797.",
-        "messageId": "14",
+        "messageId": "15",
         "inputVector": "",
         "url": "https://reconaid.in/sitemap.xml",
         "tags": {
@@ -466,7 +458,7 @@ OCI runtime exec failed: exec failed: unable to start container process: exec: "
         "attack": "",
         "name": "Strict-Transport-Security Header Not Set",
         "risk": "Low",
-        "id": "30",
+        "id": "28",
         "alertRef": "10035"
     },
     {
@@ -479,7 +471,7 @@ OCI runtime exec failed: exec failed: unable to start container process: exec: "
         "confidence": "Medium",
         "wascid": "15",
         "description": "The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.",
-        "messageId": "14",
+        "messageId": "15",
         "inputVector": "",
         "url": "https://reconaid.in/sitemap.xml",
         "tags": {
@@ -506,7 +498,7 @@ OCI runtime exec failed: exec failed: unable to start container process: exec: "
         "confidence": "High",
         "wascid": "15",
         "description": "HTTP Strict Transport Security (HSTS) is a web security policy mechanism whereby a web server declares that complying user agents (such as a web browser) are to interact with it using only secure HTTPS connections (i.e. HTTP layered over TLS/SSL). HSTS is an IETF standards track protocol and is specified in RFC 6797.",
-        "messageId": "18",
+        "messageId": "13",
         "inputVector": "",
         "url": "https://reconaid.in/favicon.ico",
         "tags": {
@@ -522,33 +514,6 @@ OCI runtime exec failed: exec failed: unable to start container process: exec: "
         "risk": "Low",
         "id": "32",
         "alertRef": "10035"
-    },
-    {
-        "sourceid": "3",
-        "other": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses.",
-        "method": "GET",
-        "evidence": "",
-        "pluginId": "10021",
-        "cweid": "693",
-        "confidence": "Medium",
-        "wascid": "15",
-        "description": "The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.",
-        "messageId": "18",
-        "inputVector": "",
-        "url": "https://reconaid.in/favicon.ico",
-        "tags": {
-            "OWASP_2021_A05": "https://owasp.org/Top10/A05_2021-Security_Misconfiguration/",
-            "OWASP_2017_A06": "https://owasp.org/www-project-top-ten/2017/A6_2017-Security_Misconfiguration.html"
-        },
-        "reference": "http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx\nhttps://owasp.org/www-community/Security_Headers",
-        "solution": "Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to 'nosniff' for all web pages.\nIf possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing.",
-        "alert": "X-Content-Type-Options Header Missing",
-        "param": "x-content-type-options",
-        "attack": "",
-        "name": "X-Content-Type-Options Header Missing",
-        "risk": "Low",
-        "id": "33",
-        "alertRef": "10021"
     },
     {
         "sourceid": "3",
@@ -574,8 +539,35 @@ OCI runtime exec failed: exec failed: unable to start container process: exec: "
         "attack": "",
         "name": "Strict-Transport-Security Header Not Set",
         "risk": "Low",
-        "id": "34",
+        "id": "33",
         "alertRef": "10035"
+    },
+    {
+        "sourceid": "3",
+        "other": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses.",
+        "method": "GET",
+        "evidence": "",
+        "pluginId": "10021",
+        "cweid": "693",
+        "confidence": "Medium",
+        "wascid": "15",
+        "description": "The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.",
+        "messageId": "13",
+        "inputVector": "",
+        "url": "https://reconaid.in/favicon.ico",
+        "tags": {
+            "OWASP_2021_A05": "https://owasp.org/Top10/A05_2021-Security_Misconfiguration/",
+            "OWASP_2017_A06": "https://owasp.org/www-project-top-ten/2017/A6_2017-Security_Misconfiguration.html"
+        },
+        "reference": "http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx\nhttps://owasp.org/www-community/Security_Headers",
+        "solution": "Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to 'nosniff' for all web pages.\nIf possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing.",
+        "alert": "X-Content-Type-Options Header Missing",
+        "param": "x-content-type-options",
+        "attack": "",
+        "name": "X-Content-Type-Options Header Missing",
+        "risk": "Low",
+        "id": "34",
+        "alertRef": "10021"
     },
     {
         "sourceid": "3",
@@ -745,9 +737,9 @@ OCI runtime exec failed: exec failed: unable to start container process: exec: "
         "confidence": "Low",
         "wascid": "13",
         "description": "The cache-control header has not been set properly or is missing, allowing the browser and proxies to cache content. For static assets like css, js, or image files this might be intended, however, the resources should be reviewed to ensure that no sensitive content will be cached.",
-        "messageId": "7",
+        "messageId": "14",
         "inputVector": "",
-        "url": "https://reconaid.in",
+        "url": "https://reconaid.in/robots.txt",
         "tags": {
             "WSTG-v42-ATHN-06": "https://owasp.org/www-project-web-security-testing-guide/v42/4-Web_Application_Security_Testing/04-Authentication_Testing/06-Testing_for_Browser_Cache_Weaknesses"
         },
@@ -763,27 +755,29 @@ OCI runtime exec failed: exec failed: unable to start container process: exec: "
     },
     {
         "sourceid": "3",
-        "other": "No links have been found while there are scripts, which is an indication that this is a modern web application.",
+        "other": "",
         "method": "GET",
-        "evidence": "<script defer=\"defer\" src=\"/static/js/main.12211593.js\"></script>",
-        "pluginId": "10109",
-        "cweid": "-1",
-        "confidence": "Medium",
-        "wascid": "-1",
-        "description": "The application appears to be a modern web application. If you need to explore it automatically then the Ajax Spider may well be more effective than the standard one.",
+        "evidence": "",
+        "pluginId": "10015",
+        "cweid": "525",
+        "confidence": "Low",
+        "wascid": "13",
+        "description": "The cache-control header has not been set properly or is missing, allowing the browser and proxies to cache content. For static assets like css, js, or image files this might be intended, however, the resources should be reviewed to ensure that no sensitive content will be cached.",
         "messageId": "7",
         "inputVector": "",
         "url": "https://reconaid.in",
-        "tags": {},
-        "reference": "",
-        "solution": "This is an informational alert and so no changes are required.",
-        "alert": "Modern Web Application",
-        "param": "",
+        "tags": {
+            "WSTG-v42-ATHN-06": "https://owasp.org/www-project-web-security-testing-guide/v42/4-Web_Application_Security_Testing/04-Authentication_Testing/06-Testing_for_Browser_Cache_Weaknesses"
+        },
+        "reference": "https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#web-content-caching\nhttps://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control\nhttps://grayduck.mn/2021/09/13/cache-control-recommendations/",
+        "solution": "For secure content, ensure the cache-control HTTP header is set with \"no-cache, no-store, must-revalidate\". If an asset should be cached consider setting the directives \"public, max-age, immutable\".",
+        "alert": "Re-examine Cache-control Directives",
+        "param": "cache-control",
         "attack": "",
-        "name": "Modern Web Application",
+        "name": "Re-examine Cache-control Directives",
         "risk": "Informational",
-        "id": "11",
-        "alertRef": "10109"
+        "id": "9",
+        "alertRef": "10015"
     },
     {
         "sourceid": "3",
@@ -795,9 +789,9 @@ OCI runtime exec failed: exec failed: unable to start container process: exec: "
         "confidence": "Low",
         "wascid": "13",
         "description": "The cache-control header has not been set properly or is missing, allowing the browser and proxies to cache content. For static assets like css, js, or image files this might be intended, however, the resources should be reviewed to ensure that no sensitive content will be cached.",
-        "messageId": "16",
+        "messageId": "15",
         "inputVector": "",
-        "url": "https://reconaid.in/robots.txt",
+        "url": "https://reconaid.in/sitemap.xml",
         "tags": {
             "WSTG-v42-ATHN-06": "https://owasp.org/www-project-web-security-testing-guide/v42/4-Web_Application_Security_Testing/04-Authentication_Testing/06-Testing_for_Browser_Cache_Weaknesses"
         },
@@ -808,7 +802,7 @@ OCI runtime exec failed: exec failed: unable to start container process: exec: "
         "attack": "",
         "name": "Re-examine Cache-control Directives",
         "risk": "Informational",
-        "id": "15",
+        "id": "12",
         "alertRef": "10015"
     },
     {
@@ -834,33 +828,7 @@ OCI runtime exec failed: exec failed: unable to start container process: exec: "
         "attack": "",
         "name": "Re-examine Cache-control Directives",
         "risk": "Informational",
-        "id": "16",
-        "alertRef": "10015"
-    },
-    {
-        "sourceid": "3",
-        "other": "",
-        "method": "GET",
-        "evidence": "",
-        "pluginId": "10015",
-        "cweid": "525",
-        "confidence": "Low",
-        "wascid": "13",
-        "description": "The cache-control header has not been set properly or is missing, allowing the browser and proxies to cache content. For static assets like css, js, or image files this might be intended, however, the resources should be reviewed to ensure that no sensitive content will be cached.",
-        "messageId": "14",
-        "inputVector": "",
-        "url": "https://reconaid.in/sitemap.xml",
-        "tags": {
-            "WSTG-v42-ATHN-06": "https://owasp.org/www-project-web-security-testing-guide/v42/4-Web_Application_Security_Testing/04-Authentication_Testing/06-Testing_for_Browser_Cache_Weaknesses"
-        },
-        "reference": "https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#web-content-caching\nhttps://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control\nhttps://grayduck.mn/2021/09/13/cache-control-recommendations/",
-        "solution": "For secure content, ensure the cache-control HTTP header is set with \"no-cache, no-store, must-revalidate\". If an asset should be cached consider setting the directives \"public, max-age, immutable\".",
-        "alert": "Re-examine Cache-control Directives",
-        "param": "cache-control",
-        "attack": "",
-        "name": "Re-examine Cache-control Directives",
-        "risk": "Informational",
-        "id": "20",
+        "id": "13",
         "alertRef": "10015"
     },
     {
@@ -873,7 +841,31 @@ OCI runtime exec failed: exec failed: unable to start container process: exec: "
         "confidence": "Medium",
         "wascid": "-1",
         "description": "The application appears to be a modern web application. If you need to explore it automatically then the Ajax Spider may well be more effective than the standard one.",
-        "messageId": "14",
+        "messageId": "7",
+        "inputVector": "",
+        "url": "https://reconaid.in",
+        "tags": {},
+        "reference": "",
+        "solution": "This is an informational alert and so no changes are required.",
+        "alert": "Modern Web Application",
+        "param": "",
+        "attack": "",
+        "name": "Modern Web Application",
+        "risk": "Informational",
+        "id": "21",
+        "alertRef": "10109"
+    },
+    {
+        "sourceid": "3",
+        "other": "No links have been found while there are scripts, which is an indication that this is a modern web application.",
+        "method": "GET",
+        "evidence": "<script defer=\"defer\" src=\"/static/js/main.12211593.js\"></script>",
+        "pluginId": "10109",
+        "cweid": "-1",
+        "confidence": "Medium",
+        "wascid": "-1",
+        "description": "The application appears to be a modern web application. If you need to explore it automatically then the Ajax Spider may well be more effective than the standard one.",
+        "messageId": "15",
         "inputVector": "",
         "url": "https://reconaid.in/sitemap.xml",
         "tags": {},
@@ -884,7 +876,7 @@ OCI runtime exec failed: exec failed: unable to start container process: exec: "
         "attack": "",
         "name": "Modern Web Application",
         "risk": "Informational",
-        "id": "29",
+        "id": "25",
         "alertRef": "10109"
     },
     {
