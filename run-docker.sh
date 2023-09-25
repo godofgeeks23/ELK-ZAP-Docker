@@ -27,6 +27,8 @@ docker cp $CONTAINER_ID:zap/output.html ./
 
 docker cp $CONTAINER_ID:zap/output.xml ./
 
+rm -rf docker-elk
+
 echo "ELK stack"
 git clone https://github.com/deviantony/docker-elk
 cp output.json docker-elk/ && cd docker-elk && docker compose stop && docker compose rm -f || /bin/true && docker compose up setup && docker compose up -d
